@@ -43,6 +43,7 @@ OpenCAD is included as a git submodule in `submodule/opencad`.
 - The web app detects the desktop shell via `window.__TAURI__`. The preload script (`src/preload/preload.ts`) exposes a compatible bridge (`core.invoke`, `event.listen`) that forwards calls to the main process over IPC, so the upstream app runs unchanged.
 - Desktop commands (`src/main/commands.ts`) mirror the Tauri backend: project storage, crash recovery and recent files in SQLite (`node:sqlite`, same schema as Tauri), native file I/O and dialogs, window management.
 - The native menu (`src/main/menu.ts`) sends the same `menu` events as the Tauri app.
+- Layout problems of the web app are fixed by CSS injected into its pages (`src/main/styleFixes.ts`), without changing the submodule.
 
 Data is stored in `opencad.db` in Electron's `userData` directory (e.g. `~/.config/OpenCAD` on Linux).
 

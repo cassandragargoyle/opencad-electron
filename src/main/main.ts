@@ -27,6 +27,7 @@ import { buildMenu } from './menu';
 import { createProjectOpener, type OpenProjectFile } from './openProject';
 import { projectFilesFromArgv } from './projectFile';
 import { Storage } from './storage';
+import { STYLE_FIXES } from './styleFixes';
 
 // Keep in sync with src/preload/preload.ts.
 const IPC_INVOKE = 'opencad:invoke';
@@ -128,6 +129,11 @@ function createWindow(route = '/', title = WINDOW_TITLE): BrowserWindow {
 
   appWindows.add(window);
   window.on('closed', () => appWindows.delete(window));
+
+  // insertCSS lasts until the next navigation, so apply it on every page load
+  window.webContents.on('dom-ready', () => {
+    void window.webContents.insertCSS(STYLE_FIXES);
+  });
 
   // Keep our title instead of the web app's <title>
   window.on('page-title-updated', (event) => event.preventDefault());
