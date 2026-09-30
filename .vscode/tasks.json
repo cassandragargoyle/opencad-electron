@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "pnpm build",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$tsc"
+    },
+    {
+      "label": "opencad: build web app",
+      "type": "shell",
+      "command": "make opencad",
+      "problemMatcher": []
+    },
+    {
+      "label": "opencad: dev server",
+      "type": "shell",
+      "command": "pnpm -C submodule/opencad dev:browser",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": { "regexp": "^__never_matches__$" },
+        "background": {
+          "beginsPattern": "VITE|vite",
+          "endsPattern": "Local:|ready in"
+        }
+      }
+    },
+    {
+      "label": "build + dev server",
+      "dependsOn": ["build", "opencad: dev server"],
+      "problemMatcher": []
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "pnpm test",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

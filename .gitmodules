@@ -1,0 +1,3 @@
+[submodule "opencad"]
+	path = submodule/opencad
+	url = https://github.com/cassandragargoyle/opencad.git

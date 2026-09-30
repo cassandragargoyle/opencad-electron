@@ -1,0 +1,64 @@
+{
+  "name": "opencad-electron",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenCAD desktop application built on Electron",
+  "license": "Apache-2.0",
+  "author": "Zdenek",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "opencad:install": "pnpm -C submodule/opencad install --frozen-lockfile",
+    "opencad:build": "pnpm -C submodule/opencad build:browser",
+    "opencad:dev": "pnpm -C submodule/opencad dev:browser",
+    "build": "tsc -p tsconfig.json",
+    "start": "pnpm build && electron .",
+    "dev": "pnpm build && electron . --dev-url=http://localhost:5173",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "dist": "pnpm build && electron-builder"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron"
+    ]
+  },
+  "build": {
+    "appId": "com.opencad.electron",
+    "productName": "OpenCAD",
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "submodule/opencad/packages/app/dist",
+        "to": "app-dist"
+      }
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "icon": "submodule/opencad/packages/desktop/src-tauri/icons/icon.png",
+    "fileAssociations": [
+      { "ext": "opencad", "name": "OpenCAD Project" },
+      { "ext": "ifc", "name": "IFC Building Model" }
+    ],
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Graphics"
+    },
+    "mac": {
+      "icon": "submodule/opencad/packages/desktop/src-tauri/icons/icon.icns"
+    },
+    "win": {
+      "icon": "submodule/opencad/packages/desktop/src-tauri/icons/icon.ico"
+    }
+  }
+}
