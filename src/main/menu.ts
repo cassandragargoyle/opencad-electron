@@ -10,6 +10,7 @@
  */
 
 import { BrowserWindow, Menu, type MenuItemConstructorOptions } from 'electron';
+import type { ZoomAction } from './appButtons';
 
 export type MenuEventSender = (window: BrowserWindow, id: string) => void;
 
@@ -20,10 +21,14 @@ export interface MenuActions {
   showAbout(window: BrowserWindow | undefined): void;
   /** File → Open is handled by the desktop shell (native dialog, *.opencad files) */
   openProject(window: BrowserWindow | undefined): void;
+  /** View → Zoom is handled by the desktop shell (the web app ignores menu events) */
+  zoom(window: BrowserWindow, action: ZoomAction): void;
+  /** File → Close returns to the project dashboard (the web app ignores menu events) */
+  closeProject(window: BrowserWindow): void;
 }
 
 export function buildMenu(
-  { sendMenuEvent, showAbout, openProject }: MenuActions,
+  { sendMenuEvent, showAbout, openProject, zoom, closeProject }: MenuActions,
   isDev: boolean
 ): Menu {
   const item = (id: string, label: string, accelerator?: string): MenuItemConstructorOptions => ({
@@ -32,6 +37,21 @@ export function buildMenu(
     accelerator,
     click: (_item, window) => {
       if (window instanceof BrowserWindow) sendMenuEvent(window, id);
+    },
+  });
+
+  /** Item handled by the desktop shell instead of the web app */
+  const shellItem = (
+    id: string,
+    label: string,
+    accelerator: string,
+    run: (window: BrowserWindow) => void
+  ): MenuItemConstructorOptions => ({
+    id,
+    label,
+    accelerator,
+    click: (_item, window) => {
+      if (window instanceof BrowserWindow) run(window);
     },
   });
 
@@ -69,7 +89,7 @@ export function buildMenu(
         },
         item('file-export', 'Export…'),
         { type: 'separator' },
-        item('file-close', 'Close', 'CmdOrCtrl+W'),
+        shellItem('file-close', 'Close', 'CmdOrCtrl+W', closeProject),
         ...(process.platform === 'darwin'
           ? []
           : [{ type: 'separator' } as const, { role: 'quit' } as const]),
@@ -92,9 +112,9 @@ export function buildMenu(
     {
       label: 'View',
       submenu: [
-        item('view-zoom-in', 'Zoom In', 'CmdOrCtrl+Plus'),
-        item('view-zoom-out', 'Zoom Out', 'CmdOrCtrl+-'),
-        item('view-zoom-fit', 'Zoom to Fit', 'CmdOrCtrl+0'),
+        shellItem('view-zoom-in', 'Zoom In', 'CmdOrCtrl+Plus', (w) => zoom(w, 'in')),
+        shellItem('view-zoom-out', 'Zoom Out', 'CmdOrCtrl+-', (w) => zoom(w, 'out')),
+        shellItem('view-zoom-fit', 'Zoom to Fit', 'CmdOrCtrl+0', (w) => zoom(w, 'fit')),
         { type: 'separator' },
         item('view-toggle-2d-3d', 'Toggle 2D / 3D', 'CmdOrCtrl+Shift+3'),
         { type: 'separator' },

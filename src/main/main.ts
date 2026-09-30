@@ -27,6 +27,7 @@ import { buildMenu } from './menu';
 import { createProjectOpener, type OpenProjectFile } from './openProject';
 import { projectFilesFromArgv } from './projectFile';
 import { Storage } from './storage';
+import { closeProjectScript, zoomScript } from './appButtons';
 import { STYLE_FIXES } from './styleFixes';
 
 // Keep in sync with src/preload/preload.ts.
@@ -192,6 +193,13 @@ function openProject(filePath?: string, preferred?: BrowserWindow): void {
   }
 }
 
+/** Runs a script in the web app's page, logging failures */
+function runPageScript(window: BrowserWindow, script: string): void {
+  window.webContents.executeJavaScript(script).catch((err: unknown) => {
+    console.error('Page script failed:', err);
+  });
+}
+
 function windowContext(window: BrowserWindow): WindowContext {
   const pickPath = (result: { canceled: boolean; filePath?: string }): string | null =>
     result.canceled || !result.filePath ? null : result.filePath;
@@ -270,6 +278,8 @@ async function start(): Promise<void> {
         sendMenuEvent: (window, id) => window.webContents.send(IPC_EVENT, 'menu', id),
         showAbout: showAboutWindow,
         openProject: (window) => openProject(undefined, window),
+        zoom: (window, action) => runPageScript(window, zoomScript(action)),
+        closeProject: (window) => runPageScript(window, closeProjectScript()),
       },
       isDev
     )
