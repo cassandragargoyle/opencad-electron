@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'"
+    />
+    <title>About CassandraGargoyle OpenCAD</title>
+    <link rel="stylesheet" href="about.css" />
+    <script src="about.js" defer></script>
+  </head>
+  <body>
+    <section class="about" aria-labelledby="about-title">
+      <!-- From design to building: scale model, BIM model on screen and the real building -->
+      <img
+        class="about__banner"
+        src="../about-banner.webp"
+        alt="An architectural scale model, a 3D building model on a laptop and the finished building outside the window, joined by glowing lines"
+        width="1920"
+        height="685"
+      />
+      <div class="about__content">
+        <header class="about__header">
+          <img class="about__icon" src="icon.png" alt="" width="48" height="48" />
+          <div>
+            <h1 id="about-title" class="about__title">CassandraGargoyle OpenCAD</h1>
+            <p class="about__version">Version <span data-field="version">–</span></p>
+          </div>
+        </header>
+
+        <p>
+          Desktop application for <a href="https://github.com/cassandragargoyle/opencad">OpenCAD</a>,
+          the browser-native, AI-powered, open-source BIM platform — 2D drafting, 3D modeling and
+          building documentation in one place.
+        </p>
+
+        <h2 class="about__heading">This build</h2>
+        <dl class="facts">
+          <dt>Application</dt>
+          <dd data-field="version">–</dd>
+          <dt>OpenCAD</dt>
+          <dd data-field="opencad">–</dd>
+          <dt>Electron</dt>
+          <dd data-field="electron">–</dd>
+          <dt>Chromium</dt>
+          <dd data-field="chrome">–</dd>
+          <dt>Node.js</dt>
+          <dd data-field="node">–</dd>
+        </dl>
+
+        <p class="about__licence">
+          MIT licence. Copyright (c) 2026 CassandraGargoyle Team.<br />
+          OpenCAD is licensed under the Apache License 2.0.
+        </p>
+
+        <button type="button" class="button" id="close">Close</button>
+      </div>
+    </section>
+  </body>
+</html>

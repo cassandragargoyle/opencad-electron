@@ -34,6 +34,7 @@
     "productName": "OpenCAD",
     "files": [
       "dist/**/*",
+      "assets/**/*",
       "package.json"
     ],
     "extraResources": [
@@ -44,6 +45,10 @@
       {
         "from": "submodule/opencad/LICENSE",
         "to": "licenses/OpenCAD-LICENSE"
+      },
+      {
+        "from": "submodule/opencad/package.json",
+        "to": "opencad-package.json"
       }
     ],
     "directories": {

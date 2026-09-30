@@ -14,6 +14,7 @@ import { existsSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { app, BrowserWindow, dialog, ipcMain, Menu, net, protocol, shell } from 'electron';
+import { showAboutWindow } from './about';
 import { APP_HOST, APP_ORIGIN, APP_SCHEME, resolveAppFile } from './appProtocol';
 import { createCommands, type FileFilter, type WindowContext } from './commands';
 import { buildMenu } from './menu';
@@ -22,6 +23,8 @@ import { Storage } from './storage';
 // Keep in sync with src/preload/preload.ts.
 const IPC_INVOKE = 'opencad:invoke';
 const IPC_EVENT = 'opencad:event';
+
+const WINDOW_TITLE = 'CassandraGargoyle OpenCAD';
 
 /** Hosts allowed to open as in-app popups (OAuth sign-in used by Firebase). */
 const AUTH_POPUP_HOSTS = [
@@ -91,7 +94,7 @@ function openExternal(url: string): void {
   }
 }
 
-function createWindow(route = '/', title = 'OpenCAD'): BrowserWindow {
+function createWindow(route = '/', title = WINDOW_TITLE): BrowserWindow {
   const window = new BrowserWindow({
     title,
     width: 1280,
@@ -107,6 +110,9 @@ function createWindow(route = '/', title = 'OpenCAD'): BrowserWindow {
       nodeIntegration: false,
     },
   });
+
+  // Keep our title instead of the web app's <title>
+  window.on('page-title-updated', (event) => event.preventDefault());
 
   window.once('ready-to-show', () => {
     window.maximize();
@@ -207,7 +213,13 @@ async function start(): Promise<void> {
   registerCommands(dataDir, storage);
 
   Menu.setApplicationMenu(
-    buildMenu((window, id) => window.webContents.send(IPC_EVENT, 'menu', id), isDev)
+    buildMenu(
+      {
+        sendMenuEvent: (window, id) => window.webContents.send(IPC_EVENT, 'menu', id),
+        showAbout: showAboutWindow,
+      },
+      isDev
+    )
   );
 
   createWindow();

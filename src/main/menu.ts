@@ -13,7 +13,14 @@ import { BrowserWindow, Menu, type MenuItemConstructorOptions } from 'electron';
 
 export type MenuEventSender = (window: BrowserWindow, id: string) => void;
 
-export function buildMenu(sendMenuEvent: MenuEventSender, isDev: boolean): Menu {
+export interface MenuActions {
+  /** Forwards a menu item ID to the web app */
+  sendMenuEvent: MenuEventSender;
+  /** Help → About is handled by the desktop shell, not the web app */
+  showAbout(window: BrowserWindow | undefined): void;
+}
+
+export function buildMenu({ sendMenuEvent, showAbout }: MenuActions, isDev: boolean): Menu {
   const item = (id: string, label: string, accelerator?: string): MenuItemConstructorOptions => ({
     id,
     label,
@@ -118,7 +125,12 @@ export function buildMenu(sendMenuEvent: MenuEventSender, isDev: boolean): Menu 
     {
       label: 'Help',
       submenu: [
-        item('help-about', 'About OpenCAD'),
+        {
+          id: 'help-about',
+          label: 'About OpenCAD',
+          click: (_item, window) =>
+            showAbout(window instanceof BrowserWindow ? window : undefined),
+        },
         item('help-check-updates', 'Check for Updates…'),
         item('help-docs', 'Documentation'),
       ],
