@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "OpenCAD desktop application built on Electron",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "author": "Zdenek",
   "main": "dist/main/main.js",
   "scripts": {
@@ -40,6 +40,10 @@
       {
         "from": "submodule/opencad/packages/app/dist",
         "to": "app-dist"
+      },
+      {
+        "from": "submodule/opencad/LICENSE",
+        "to": "licenses/OpenCAD-LICENSE"
       }
     ],
     "directories": {

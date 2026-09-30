@@ -89,4 +89,6 @@ Breakpoints in the web app work best with the Vite dev server variant, which ser
 
 ## License
 
-OpenCAD is licensed under the [Apache License 2.0](https://github.com/cassandragargoyle/opencad/blob/main/LICENSE).
+The code in this repository is licensed under the [MIT License](LICENSE).
+
+OpenCAD (the `submodule/opencad` submodule) is licensed separately under the [Apache License 2.0](https://github.com/cassandragargoyle/opencad/blob/main/LICENSE). Packaged builds include the OpenCAD web app together with its license.
