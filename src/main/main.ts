@@ -15,9 +15,17 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { app, BrowserWindow, dialog, ipcMain, Menu, net, protocol, shell } from 'electron';
 import { showAboutWindow } from './about';
-import { APP_HOST, APP_ORIGIN, APP_SCHEME, resolveAppFile } from './appProtocol';
+import {
+  APP_HOST,
+  APP_ORIGIN,
+  APP_SCHEME,
+  isServerApiPath,
+  resolveAppFile,
+} from './appProtocol';
 import { createCommands, type FileFilter, type WindowContext } from './commands';
 import { buildMenu } from './menu';
+import { createProjectOpener, type OpenProjectFile } from './openProject';
+import { projectFilesFromArgv } from './projectFile';
 import { Storage } from './storage';
 
 // Keep in sync with src/preload/preload.ts.
@@ -74,6 +82,13 @@ protocol.registerSchemesAsPrivileged([
 ]);
 
 let storage: Storage | undefined;
+let openProjectFile: OpenProjectFile | undefined;
+
+/** Windows showing the web app (not About, not OAuth popups) */
+const appWindows = new Set<BrowserWindow>();
+
+/** Project files requested before the app was ready (command line, macOS open-file) */
+const pendingProjectFiles: string[] = [];
 
 function isAppUrl(url: string): boolean {
   return url === appBaseUrl || url.startsWith(`${appBaseUrl}/`);
@@ -111,6 +126,9 @@ function createWindow(route = '/', title = WINDOW_TITLE): BrowserWindow {
     },
   });
 
+  appWindows.add(window);
+  window.on('closed', () => appWindows.delete(window));
+
   // Keep our title instead of the web app's <title>
   window.on('page-title-updated', (event) => event.preventDefault());
 
@@ -143,6 +161,31 @@ function createWindow(route = '/', title = WINDOW_TITLE): BrowserWindow {
   return window;
 }
 
+/**
+ * Open a project file (or show the Open dialog when no path is given) in an
+ * app window, preferring the one the request came from.
+ */
+function openProject(filePath?: string, preferred?: BrowserWindow): void {
+  const window =
+    preferred && appWindows.has(preferred) ? preferred : appWindows.values().next().value;
+  if (!openProjectFile || !window) {
+    if (filePath) pendingProjectFiles.push(filePath);
+    return;
+  }
+
+  const open = openProjectFile;
+  const run = (): void => {
+    open(window, filePath).catch((err: unknown) => {
+      console.error('Failed to open project file:', err);
+    });
+  };
+  if (window.webContents.isLoading()) {
+    window.webContents.once('did-finish-load', run);
+  } else {
+    run();
+  }
+}
+
 function windowContext(window: BrowserWindow): WindowContext {
   const pickPath = (result: { canceled: boolean; filePath?: string }): string | null =>
     result.canceled || !result.filePath ? null : result.filePath;
@@ -170,6 +213,9 @@ function registerAppProtocol(): void {
     const url = new URL(request.url);
     if (url.host !== APP_HOST) {
       return new Response('Not found', { status: 404 });
+    }
+    if (isServerApiPath(url.pathname)) {
+      return new Response('No OpenCAD server in the desktop app', { status: 503 });
     }
     return net.fetch(pathToFileURL(resolveAppFile(distDir, url.pathname)).toString());
   });
@@ -217,23 +263,41 @@ async function start(): Promise<void> {
       {
         sendMenuEvent: (window, id) => window.webContents.send(IPC_EVENT, 'menu', id),
         showAbout: showAboutWindow,
+        openProject: (window) => openProject(undefined, window),
       },
       isDev
     )
   );
 
-  createWindow();
+  const window = createWindow();
+  openProjectFile = createProjectOpener({ appBaseUrl, storage });
+
+  // Files from the command line / file associations, then any queued meanwhile
+  const files = [
+    ...projectFilesFromArgv(process.argv.slice(1)).map((f) => path.resolve(f)),
+    ...pendingProjectFiles.splice(0),
+  ];
+  for (const file of files) openProject(file, window);
 }
 
 if (!app.requestSingleInstanceLock()) {
   app.quit();
 } else {
-  app.on('second-instance', () => {
-    const [window] = BrowserWindow.getAllWindows();
+  app.on('second-instance', (_event, argv, workingDirectory) => {
+    const window: BrowserWindow | undefined = appWindows.values().next().value;
     if (window) {
       if (window.isMinimized()) window.restore();
       window.focus();
     }
+    for (const file of projectFilesFromArgv(argv.slice(1))) {
+      openProject(path.resolve(workingDirectory, file), window);
+    }
+  });
+
+  // macOS: files opened from Finder / the Dock, possibly before the app is ready
+  app.on('open-file', (event, filePath) => {
+    event.preventDefault();
+    openProject(filePath);
   });
 
   app.whenReady().then(start, (err: unknown) => {

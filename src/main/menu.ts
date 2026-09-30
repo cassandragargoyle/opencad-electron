@@ -18,9 +18,14 @@ export interface MenuActions {
   sendMenuEvent: MenuEventSender;
   /** Help → About is handled by the desktop shell, not the web app */
   showAbout(window: BrowserWindow | undefined): void;
+  /** File → Open is handled by the desktop shell (native dialog, *.opencad files) */
+  openProject(window: BrowserWindow | undefined): void;
 }
 
-export function buildMenu({ sendMenuEvent, showAbout }: MenuActions, isDev: boolean): Menu {
+export function buildMenu(
+  { sendMenuEvent, showAbout, openProject }: MenuActions,
+  isDev: boolean
+): Menu {
   const item = (id: string, label: string, accelerator?: string): MenuItemConstructorOptions => ({
     id,
     label,
@@ -41,7 +46,13 @@ export function buildMenu({ sendMenuEvent, showAbout }: MenuActions, isDev: bool
       label: 'File',
       submenu: [
         item('file-new', 'New Project', 'CmdOrCtrl+N'),
-        item('file-open', 'Open…', 'CmdOrCtrl+O'),
+        {
+          id: 'file-open',
+          label: 'Open…',
+          accelerator: 'CmdOrCtrl+O',
+          click: (_item, window) =>
+            openProject(window instanceof BrowserWindow ? window : undefined),
+        },
         { type: 'separator' },
         item('file-save', 'Save', 'CmdOrCtrl+S'),
         item('file-save-as', 'Save As…', 'CmdOrCtrl+Shift+S'),

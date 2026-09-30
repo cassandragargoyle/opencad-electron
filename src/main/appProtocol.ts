@@ -15,6 +15,16 @@ export const APP_HOST = 'app';
 export const APP_ORIGIN = `${APP_SCHEME}://${APP_HOST}`;
 
 /**
+ * Paths of the OpenCAD server API. The desktop app has no server behind
+ * `opencad://app`, so these must fail instead of falling back to index.html -
+ * otherwise the web app's health check (`/api/v1/health`) reports the server
+ * as online and project creation waits on API calls that return HTML.
+ */
+export function isServerApiPath(pathname: string): boolean {
+  return pathname === '/api' || pathname.startsWith('/api/');
+}
+
+/**
  * Map a request pathname to a file inside `distDir`.
  * Paths escaping `distDir` and paths without a matching file resolve to index.html.
  */

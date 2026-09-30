@@ -2,7 +2,7 @@ import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { resolveAppFile } from './appProtocol';
+import { isServerApiPath, resolveAppFile } from './appProtocol';
 
 describe('resolveAppFile', () => {
   let dist: string;
@@ -47,5 +47,15 @@ describe('resolveAppFile', () => {
 
   it('falls back to index.html for malformed encodings', () => {
     expect(resolveAppFile(dist, '/%E0%A4%A')).toBe(index);
+  });
+});
+
+describe('isServerApiPath', () => {
+  it('matches the server API but not app routes or assets', () => {
+    expect(isServerApiPath('/api')).toBe(true);
+    expect(isServerApiPath('/api/v1/health')).toBe(true);
+    expect(isServerApiPath('/apiary')).toBe(false);
+    expect(isServerApiPath('/project/api')).toBe(false);
+    expect(isServerApiPath('/assets/api.js')).toBe(false);
   });
 });

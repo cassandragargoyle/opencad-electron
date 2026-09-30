@@ -1,0 +1,1073 @@
+{
+  "id": "6f1c2b3a-4d5e-4f60-8a7b-9c0d1e2f3a4b",
+  "name": "Example House",
+  "version": {
+    "clock": {}
+  },
+  "metadata": {
+    "createdAt": 1790799193141,
+    "updatedAt": 1790799193147,
+    "createdBy": "example",
+    "schemaVersion": "1.0.0"
+  },
+  "content": {
+    "elements": {
+      "ed904175-d92b-430f-ac2f-7630f52ce932": {
+        "id": "ed904175-d92b-430f-ac2f-7630f52ce932",
+        "type": "wall",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "value": "North Wall"
+          },
+          "StartX": {
+            "type": "number",
+            "value": 0
+          },
+          "StartY": {
+            "type": "number",
+            "value": 0
+          },
+          "EndX": {
+            "type": "number",
+            "value": 10000
+          },
+          "EndY": {
+            "type": "number",
+            "value": 0
+          },
+          "Height": {
+            "type": "number",
+            "value": 3000
+          },
+          "Width": {
+            "type": "number",
+            "value": 300
+          },
+          "Material": {
+            "type": "string",
+            "value": "Concrete"
+          },
+          "CompositeId": {
+            "type": "string",
+            "value": "ext-300-brick-cavity-blockwork-plaster"
+          },
+          "WallType": {
+            "type": "string",
+            "value": "exterior"
+          },
+          "ElevationOffset": {
+            "type": "number",
+            "value": 0
+          }
+        },
+        "propertySets": [],
+        "geometry": {
+          "type": "brep",
+          "data": null
+        },
+        "layerId": "3db5d2ea-53e5-4a9c-b679-f71e897f05bb",
+        "levelId": null,
+        "transform": {
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "boundingBox": {
+          "min": {
+            "x": 0,
+            "y": -0.5,
+            "z": 0,
+            "_type": "Point3D"
+          },
+          "max": {
+            "x": 10000,
+            "y": 0.5,
+            "z": 3000,
+            "_type": "Point3D"
+          }
+        },
+        "metadata": {
+          "id": "ed904175-d92b-430f-ac2f-7630f52ce932",
+          "createdBy": "example",
+          "createdAt": 1790799193146,
+          "updatedAt": 1790799193146,
+          "version": {
+            "clock": {}
+          }
+        },
+        "visible": true,
+        "locked": false
+      },
+      "a6d7153f-614f-4eda-b178-b6e6a3163752": {
+        "id": "a6d7153f-614f-4eda-b178-b6e6a3163752",
+        "type": "wall",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "value": "East Wall"
+          },
+          "StartX": {
+            "type": "number",
+            "value": 10000
+          },
+          "StartY": {
+            "type": "number",
+            "value": 0
+          },
+          "EndX": {
+            "type": "number",
+            "value": 10000
+          },
+          "EndY": {
+            "type": "number",
+            "value": 8000
+          },
+          "Height": {
+            "type": "number",
+            "value": 3000
+          },
+          "Width": {
+            "type": "number",
+            "value": 300
+          },
+          "Material": {
+            "type": "string",
+            "value": "Concrete"
+          },
+          "CompositeId": {
+            "type": "string",
+            "value": "ext-300-brick-cavity-blockwork-plaster"
+          },
+          "WallType": {
+            "type": "string",
+            "value": "exterior"
+          },
+          "ElevationOffset": {
+            "type": "number",
+            "value": 0
+          }
+        },
+        "propertySets": [],
+        "geometry": {
+          "type": "brep",
+          "data": null
+        },
+        "layerId": "3db5d2ea-53e5-4a9c-b679-f71e897f05bb",
+        "levelId": null,
+        "transform": {
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "boundingBox": {
+          "min": {
+            "x": 9999.5,
+            "y": 0,
+            "z": 0,
+            "_type": "Point3D"
+          },
+          "max": {
+            "x": 10000.5,
+            "y": 8000,
+            "z": 3000,
+            "_type": "Point3D"
+          }
+        },
+        "metadata": {
+          "id": "a6d7153f-614f-4eda-b178-b6e6a3163752",
+          "createdBy": "example",
+          "createdAt": 1790799193146,
+          "updatedAt": 1790799193146,
+          "version": {
+            "clock": {}
+          }
+        },
+        "visible": true,
+        "locked": false
+      },
+      "f66c439b-aeb5-4365-99f1-eabf8787e4fe": {
+        "id": "f66c439b-aeb5-4365-99f1-eabf8787e4fe",
+        "type": "wall",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "value": "South Wall"
+          },
+          "StartX": {
+            "type": "number",
+            "value": 10000
+          },
+          "StartY": {
+            "type": "number",
+            "value": 8000
+          },
+          "EndX": {
+            "type": "number",
+            "value": 0
+          },
+          "EndY": {
+            "type": "number",
+            "value": 8000
+          },
+          "Height": {
+            "type": "number",
+            "value": 3000
+          },
+          "Width": {
+            "type": "number",
+            "value": 300
+          },
+          "Material": {
+            "type": "string",
+            "value": "Concrete"
+          },
+          "CompositeId": {
+            "type": "string",
+            "value": "ext-300-brick-cavity-blockwork-plaster"
+          },
+          "WallType": {
+            "type": "string",
+            "value": "exterior"
+          },
+          "ElevationOffset": {
+            "type": "number",
+            "value": 0
+          }
+        },
+        "propertySets": [],
+        "geometry": {
+          "type": "brep",
+          "data": null
+        },
+        "layerId": "3db5d2ea-53e5-4a9c-b679-f71e897f05bb",
+        "levelId": null,
+        "transform": {
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "boundingBox": {
+          "min": {
+            "x": 0,
+            "y": 7999.5,
+            "z": 0,
+            "_type": "Point3D"
+          },
+          "max": {
+            "x": 10000,
+            "y": 8000.5,
+            "z": 3000,
+            "_type": "Point3D"
+          }
+        },
+        "metadata": {
+          "id": "f66c439b-aeb5-4365-99f1-eabf8787e4fe",
+          "createdBy": "example",
+          "createdAt": 1790799193146,
+          "updatedAt": 1790799193146,
+          "version": {
+            "clock": {}
+          }
+        },
+        "visible": true,
+        "locked": false
+      },
+      "1d12738d-4112-40df-b676-1aa3a5658b26": {
+        "id": "1d12738d-4112-40df-b676-1aa3a5658b26",
+        "type": "wall",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "value": "West Wall"
+          },
+          "StartX": {
+            "type": "number",
+            "value": 0
+          },
+          "StartY": {
+            "type": "number",
+            "value": 8000
+          },
+          "EndX": {
+            "type": "number",
+            "value": 0
+          },
+          "EndY": {
+            "type": "number",
+            "value": 0
+          },
+          "Height": {
+            "type": "number",
+            "value": 3000
+          },
+          "Width": {
+            "type": "number",
+            "value": 300
+          },
+          "Material": {
+            "type": "string",
+            "value": "Concrete"
+          },
+          "CompositeId": {
+            "type": "string",
+            "value": "ext-300-brick-cavity-blockwork-plaster"
+          },
+          "WallType": {
+            "type": "string",
+            "value": "exterior"
+          },
+          "ElevationOffset": {
+            "type": "number",
+            "value": 0
+          }
+        },
+        "propertySets": [],
+        "geometry": {
+          "type": "brep",
+          "data": null
+        },
+        "layerId": "3db5d2ea-53e5-4a9c-b679-f71e897f05bb",
+        "levelId": null,
+        "transform": {
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "boundingBox": {
+          "min": {
+            "x": -0.5,
+            "y": 0,
+            "z": 0,
+            "_type": "Point3D"
+          },
+          "max": {
+            "x": 0.5,
+            "y": 8000,
+            "z": 3000,
+            "_type": "Point3D"
+          }
+        },
+        "metadata": {
+          "id": "1d12738d-4112-40df-b676-1aa3a5658b26",
+          "createdBy": "example",
+          "createdAt": 1790799193146,
+          "updatedAt": 1790799193146,
+          "version": {
+            "clock": {}
+          }
+        },
+        "visible": true,
+        "locked": false
+      },
+      "97956899-a31b-49dc-ab19-0fc2099d1fd4": {
+        "id": "97956899-a31b-49dc-ab19-0fc2099d1fd4",
+        "type": "wall",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "value": "Living / Bedrooms"
+          },
+          "StartX": {
+            "type": "number",
+            "value": 6000
+          },
+          "StartY": {
+            "type": "number",
+            "value": 0
+          },
+          "EndX": {
+            "type": "number",
+            "value": 6000
+          },
+          "EndY": {
+            "type": "number",
+            "value": 8000
+          },
+          "Height": {
+            "type": "number",
+            "value": 3000
+          },
+          "Width": {
+            "type": "number",
+            "value": 150
+          },
+          "Material": {
+            "type": "string",
+            "value": "Plasterboard"
+          },
+          "CompositeId": {
+            "type": "string",
+            "value": "int-150-plasterboard-stud-plasterboard"
+          },
+          "WallType": {
+            "type": "string",
+            "value": "interior"
+          },
+          "ElevationOffset": {
+            "type": "number",
+            "value": 0
+          }
+        },
+        "propertySets": [],
+        "geometry": {
+          "type": "brep",
+          "data": null
+        },
+        "layerId": "3db5d2ea-53e5-4a9c-b679-f71e897f05bb",
+        "levelId": null,
+        "transform": {
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "boundingBox": {
+          "min": {
+            "x": 5999.5,
+            "y": 0,
+            "z": 0,
+            "_type": "Point3D"
+          },
+          "max": {
+            "x": 6000.5,
+            "y": 8000,
+            "z": 3000,
+            "_type": "Point3D"
+          }
+        },
+        "metadata": {
+          "id": "97956899-a31b-49dc-ab19-0fc2099d1fd4",
+          "createdBy": "example",
+          "createdAt": 1790799193146,
+          "updatedAt": 1790799193146,
+          "version": {
+            "clock": {}
+          }
+        },
+        "visible": true,
+        "locked": false
+      },
+      "4f386243-3d0c-470e-884c-92676639b652": {
+        "id": "4f386243-3d0c-470e-884c-92676639b652",
+        "type": "wall",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "value": "Bedroom Divider"
+          },
+          "StartX": {
+            "type": "number",
+            "value": 6000
+          },
+          "StartY": {
+            "type": "number",
+            "value": 4000
+          },
+          "EndX": {
+            "type": "number",
+            "value": 10000
+          },
+          "EndY": {
+            "type": "number",
+            "value": 4000
+          },
+          "Height": {
+            "type": "number",
+            "value": 3000
+          },
+          "Width": {
+            "type": "number",
+            "value": 150
+          },
+          "Material": {
+            "type": "string",
+            "value": "Plasterboard"
+          },
+          "CompositeId": {
+            "type": "string",
+            "value": "int-150-plasterboard-stud-plasterboard"
+          },
+          "WallType": {
+            "type": "string",
+            "value": "interior"
+          },
+          "ElevationOffset": {
+            "type": "number",
+            "value": 0
+          }
+        },
+        "propertySets": [],
+        "geometry": {
+          "type": "brep",
+          "data": null
+        },
+        "layerId": "3db5d2ea-53e5-4a9c-b679-f71e897f05bb",
+        "levelId": null,
+        "transform": {
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "boundingBox": {
+          "min": {
+            "x": 6000,
+            "y": 3999.5,
+            "z": 0,
+            "_type": "Point3D"
+          },
+          "max": {
+            "x": 10000,
+            "y": 4000.5,
+            "z": 3000,
+            "_type": "Point3D"
+          }
+        },
+        "metadata": {
+          "id": "4f386243-3d0c-470e-884c-92676639b652",
+          "createdBy": "example",
+          "createdAt": 1790799193146,
+          "updatedAt": 1790799193146,
+          "version": {
+            "clock": {}
+          }
+        },
+        "visible": true,
+        "locked": false
+      },
+      "6d566faa-1c0d-48d0-8078-69f9e366da4e": {
+        "id": "6d566faa-1c0d-48d0-8078-69f9e366da4e",
+        "type": "slab",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "value": "Foundation"
+          },
+          "Kind": {
+            "type": "string",
+            "value": "foundation"
+          },
+          "Points": {
+            "type": "string",
+            "value": "[{\"x\":0,\"y\":0},{\"x\":10000,\"y\":0},{\"x\":10000,\"y\":8000},{\"x\":0,\"y\":8000}]"
+          },
+          "Thickness": {
+            "type": "number",
+            "value": 500
+          },
+          "ElevationOffset": {
+            "type": "number",
+            "value": -500
+          },
+          "Material": {
+            "type": "string",
+            "value": "Reinforced Concrete"
+          }
+        },
+        "propertySets": [],
+        "geometry": {
+          "type": "brep",
+          "data": null
+        },
+        "layerId": "3db5d2ea-53e5-4a9c-b679-f71e897f05bb",
+        "levelId": null,
+        "transform": {
+          "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "boundingBox": {
+          "min": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "_type": "Point3D"
+          },
+          "max": {
+            "x": 10000,
+            "y": 8000,
+            "z": 500,
+            "_type": "Point3D"
+          }
+        },
+        "metadata": {
+          "id": "6d566faa-1c0d-48d0-8078-69f9e366da4e",
+          "createdBy": "example",
+          "createdAt": 1790799193147,
+          "updatedAt": 1790799193147,
+          "version": {
+            "clock": {}
+          }
+        },
+        "visible": true,
+        "locked": false
+      }
+    },
+    "spaces": {}
+  },
+  "organization": {
+    "layers": {
+      "3db5d2ea-53e5-4a9c-b679-f71e897f05bb": {
+        "id": "3db5d2ea-53e5-4a9c-b679-f71e897f05bb",
+        "name": "Layer 1",
+        "color": "#808080",
+        "visible": true,
+        "locked": false,
+        "order": 0
+      }
+    },
+    "levels": {
+      "adb88c3c-19e6-47d7-aabf-0ad1451ef76a": {
+        "id": "adb88c3c-19e6-47d7-aabf-0ad1451ef76a",
+        "name": "Level 1",
+        "elevation": 0,
+        "height": 3000,
+        "order": 0
+      }
+    }
+  },
+  "presentation": {
+    "views": {},
+    "annotations": {}
+  },
+  "library": {
+    "materials": {
+      "mat-concrete": {
+        "id": "mat-concrete",
+        "name": "Concrete",
+        "category": "concrete",
+        "properties": {
+          "color": {
+            "r": 0.7,
+            "g": 0.7,
+            "b": 0.7,
+            "a": 1
+          },
+          "roughness": 0.9,
+          "metalness": 0
+        }
+      },
+      "mat-concrete-reinforced": {
+        "id": "mat-concrete-reinforced",
+        "name": "Reinforced Concrete",
+        "category": "concrete",
+        "properties": {
+          "color": {
+            "r": 0.65,
+            "g": 0.65,
+            "b": 0.65,
+            "a": 1
+          },
+          "roughness": 0.85,
+          "metalness": 0
+        }
+      },
+      "mat-masonry-brick": {
+        "id": "mat-masonry-brick",
+        "name": "Brick",
+        "category": "masonry",
+        "properties": {
+          "color": {
+            "r": 0.6,
+            "g": 0.25,
+            "b": 0.2,
+            "a": 1
+          },
+          "roughness": 0.8,
+          "metalness": 0
+        }
+      },
+      "mat-masonry-concrete-block": {
+        "id": "mat-masonry-concrete-block",
+        "name": "Concrete Block",
+        "category": "masonry",
+        "properties": {
+          "color": {
+            "r": 0.5,
+            "g": 0.5,
+            "b": 0.5,
+            "a": 1
+          },
+          "roughness": 0.9,
+          "metalness": 0
+        }
+      },
+      "mat-wood": {
+        "id": "mat-wood",
+        "name": "Wood",
+        "category": "wood",
+        "properties": {
+          "color": {
+            "r": 0.55,
+            "g": 0.35,
+            "b": 0.15,
+            "a": 1
+          },
+          "roughness": 0.7,
+          "metalness": 0
+        }
+      },
+      "mat-wood-dark": {
+        "id": "mat-wood-dark",
+        "name": "Dark Wood",
+        "category": "wood",
+        "properties": {
+          "color": {
+            "r": 0.3,
+            "g": 0.18,
+            "b": 0.08,
+            "a": 1
+          },
+          "roughness": 0.65,
+          "metalness": 0
+        }
+      },
+      "mat-steel": {
+        "id": "mat-steel",
+        "name": "Steel",
+        "category": "metal",
+        "properties": {
+          "color": {
+            "r": 0.4,
+            "g": 0.4,
+            "b": 0.45,
+            "a": 1
+          },
+          "roughness": 0.3,
+          "metalness": 0.9
+        }
+      },
+      "mat-aluminum": {
+        "id": "mat-aluminum",
+        "name": "Aluminum",
+        "category": "metal",
+        "properties": {
+          "color": {
+            "r": 0.75,
+            "g": 0.77,
+            "b": 0.8,
+            "a": 1
+          },
+          "roughness": 0.25,
+          "metalness": 0.95
+        }
+      },
+      "mat-glass": {
+        "id": "mat-glass",
+        "name": "Glass",
+        "category": "glass",
+        "properties": {
+          "color": {
+            "r": 0.85,
+            "g": 0.9,
+            "b": 0.95,
+            "a": 0.3
+          },
+          "roughness": 0.05,
+          "metalness": 0,
+          "transparency": 0.7
+        }
+      },
+      "mat-gypsum": {
+        "id": "mat-gypsum",
+        "name": "Gypsum Board",
+        "category": "other",
+        "properties": {
+          "color": {
+            "r": 0.95,
+            "g": 0.95,
+            "b": 0.9,
+            "a": 1
+          },
+          "roughness": 0.95,
+          "metalness": 0
+        }
+      },
+      "mat-insulation": {
+        "id": "mat-insulation",
+        "name": "Insulation",
+        "category": "other",
+        "properties": {
+          "color": {
+            "r": 0.9,
+            "g": 0.7,
+            "b": 0.4,
+            "a": 1
+          },
+          "roughness": 1,
+          "metalness": 0
+        }
+      },
+      "mat-floor-ceramic": {
+        "id": "mat-floor-ceramic",
+        "name": "Ceramic Tile",
+        "category": "other",
+        "properties": {
+          "color": {
+            "r": 0.9,
+            "g": 0.9,
+            "b": 0.85,
+            "a": 1
+          },
+          "roughness": 0.4,
+          "metalness": 0
+        }
+      },
+      "mat-floor-wood": {
+        "id": "mat-floor-wood",
+        "name": "Wood Flooring",
+        "category": "wood",
+        "properties": {
+          "color": {
+            "r": 0.5,
+            "g": 0.32,
+            "b": 0.14,
+            "a": 1
+          },
+          "roughness": 0.5,
+          "metalness": 0
+        }
+      },
+      "mat-carpet": {
+        "id": "mat-carpet",
+        "name": "Carpet",
+        "category": "fabric",
+        "properties": {
+          "color": {
+            "r": 0.3,
+            "g": 0.3,
+            "b": 0.35,
+            "a": 1
+          },
+          "roughness": 1,
+          "metalness": 0
+        }
+      },
+      "mat-roofing": {
+        "id": "mat-roofing",
+        "name": "Roofing Membrane",
+        "category": "other",
+        "properties": {
+          "color": {
+            "r": 0.35,
+            "g": 0.35,
+            "b": 0.4,
+            "a": 1
+          },
+          "roughness": 0.7,
+          "metalness": 0.1
+        }
+      }
+    },
+    "composites": {
+      "ext-300-brick-cavity-blockwork-plaster": {
+        "id": "ext-300-brick-cavity-blockwork-plaster",
+        "name": "Exterior — brick / cavity / blockwork / plaster (300 mm)",
+        "category": "wall",
+        "layers": [
+          {
+            "material": "Brick",
+            "thickness": 102.5,
+            "finish": "exterior"
+          },
+          {
+            "material": "Air Cavity",
+            "thickness": 50
+          },
+          {
+            "material": "Mineral Wool",
+            "thickness": 100
+          },
+          {
+            "material": "Concrete",
+            "thickness": 35,
+            "core": true
+          },
+          {
+            "material": "Plasterboard",
+            "thickness": 12.5,
+            "finish": "interior"
+          }
+        ]
+      },
+      "int-150-plasterboard-stud-plasterboard": {
+        "id": "int-150-plasterboard-stud-plasterboard",
+        "name": "Interior partition — plasterboard / stud / plasterboard (150 mm)",
+        "category": "wall",
+        "layers": [
+          {
+            "material": "Plasterboard",
+            "thickness": 15,
+            "finish": "exterior"
+          },
+          {
+            "material": "Air Cavity",
+            "thickness": 120,
+            "core": true
+          },
+          {
+            "material": "Plasterboard",
+            "thickness": 15,
+            "finish": "interior"
+          }
+        ]
+      },
+      "part-100-lightweight-partition": {
+        "id": "part-100-lightweight-partition",
+        "name": "Lightweight partition (100 mm)",
+        "category": "wall",
+        "layers": [
+          {
+            "material": "Plasterboard",
+            "thickness": 12.5,
+            "finish": "exterior"
+          },
+          {
+            "material": "Air Cavity",
+            "thickness": 75,
+            "core": true
+          },
+          {
+            "material": "Plasterboard",
+            "thickness": 12.5,
+            "finish": "interior"
+          }
+        ]
+      },
+      "curt-60-glazing": {
+        "id": "curt-60-glazing",
+        "name": "Curtain wall — glazing (60 mm)",
+        "category": "wall",
+        "layers": [
+          {
+            "material": "Clear Glass",
+            "thickness": 60,
+            "core": true,
+            "finish": "both"
+          }
+        ]
+      },
+      "slab-200-concrete": {
+        "id": "slab-200-concrete",
+        "name": "Slab — concrete (200 mm)",
+        "category": "slab",
+        "layers": [
+          {
+            "material": "Concrete",
+            "thickness": 200,
+            "core": true
+          }
+        ]
+      },
+      "roof-250-clay-tile-deck": {
+        "id": "roof-250-clay-tile-deck",
+        "name": "Roof — clay tile / deck / insulation (250 mm)",
+        "category": "roof",
+        "layers": [
+          {
+            "material": "Clay Roof Tiles",
+            "thickness": 40,
+            "finish": "exterior"
+          },
+          {
+            "material": "Timber",
+            "thickness": 25
+          },
+          {
+            "material": "Mineral Wool",
+            "thickness": 175,
+            "core": true
+          },
+          {
+            "material": "Plasterboard",
+            "thickness": 10,
+            "finish": "interior"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -46,6 +46,16 @@ OpenCAD is included as a git submodule in `submodule/opencad`.
 
 Data is stored in `opencad.db` in Electron's `userData` directory (e.g. `~/.config/OpenCAD` on Linux).
 
+## Opening project files
+
+**File → Open…** (`Ctrl+O`) opens an OpenCAD project file (`*.opencad`, the JSON-serialised document, same format as the Tauri app). A file can also be passed on the command line or opened through the file association:
+
+```bash
+pnpm exec electron . "examples/Example House.opencad"
+```
+
+The project is added to the project list of the web app and opened. If it is already there, you can replace the local copy or open the file as a copy. An example project is in [`examples/`](examples/).
+
 ## Getting started
 
 Prerequisites: Node.js 22+, pnpm 9+, and the toolchain OpenCAD itself needs to build its web app (see the OpenCAD README).
@@ -85,6 +95,7 @@ Breakpoints in the web app work best with the Vite dev server variant, which ser
 ## Known limitations
 
 - Sign-in with OAuth popups (Firebase) may not work, because the `opencad://app` origin is not an authorised Firebase domain.
+- Saving a project back to a `*.opencad` file (File → Save) is not implemented yet.
 - Like the Tauri backend, local AI, file watching, tray status, auto-update and browser–desktop sync are stubs.
 
 ## License
