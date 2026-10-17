@@ -71,11 +71,11 @@ from `package.json`.
 
 Check that a running instance is not holding the old file first - the process is
 `opencad-electron`, the executable name electron-builder derives from the `name` in
-`package.json`; matching the file name with `pgrep -f` would find the shell that runs the
-check:
+`package.json`. Use `pidof`, not `pgrep -x`, which only sees the first 15 characters of a
+process name, and not `pgrep -f`, which would find the shell that runs the check:
 
 ```bash
-pgrep -x opencad-electron
+pidof opencad-electron
 ```
 
 If it is running, ask the user to close it before installing. Then:

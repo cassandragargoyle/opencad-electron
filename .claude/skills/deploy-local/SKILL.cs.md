@@ -63,11 +63,11 @@ to uživateli. Pokud je v `release/` víc AppImage, vyber tu s verzí z `package
 
 Nejdřív ověř, že starý soubor nedrží běžící instance - proces se jmenuje
 `opencad-electron`, název spustitelného souboru, který electron-builder odvodí z `name`
-v `package.json`; hledání podle názvu souboru přes `pgrep -f` by našlo shell, který
-kontrolu spouští:
+v `package.json`. Použij `pidof`, ne `pgrep -x`, který vidí jen prvních 15 znaků jména
+procesu, ani `pgrep -f`, který by našel shell, jenž kontrolu spouští:
 
 ```bash
-pgrep -x opencad-electron
+pidof opencad-electron
 ```
 
 Pokud běží, požádej uživatele, ať ji před instalací zavře. Potom:
