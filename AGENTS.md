@@ -115,39 +115,19 @@ make dist
 
 ### Issue Tracking & Documentation
 
-- Issue tracking and documentation is located in `docs/issues/`
-- Directory layout: active issues live in `docs/issues/internal/`; completed
-  issues (`✅ Implemented` / `❌ Closed`) are archived in `docs/issues/internal/done/`
-- `docs/issues/README.md` holds two tables — **Active** and **Done** — mirroring
-  the layout used by `portunix-synapse`
-- GitHub issues are mirrored to local documentation in `docs/issues/internal/`
-- Before creating new features, check existing issues in `docs/issues/README.md`
-
-#### Issue workflow process
-
-1. **Creating new issue:**
-   - Create file `docs/issues/internal/{number}-{name}.md` (e.g., `175-feature-name.md`)
-   - Add row to the **Active** table in `docs/issues/README.md`
-   - Create corresponding GitHub issue with same content
-   - Keep both files synchronized
-
-2. **Updating existing issue:**
-   - Edit local markdown file in `docs/issues/internal/`
-   - Update status in `docs/issues/README.md`
-   - Synchronize changes to GitHub issue
-
-3. **Completing issue (✅ Implemented or ❌ Closed):**
-   - Change status to `✅ Implemented` (or `❌ Closed`) in the issue file header
-   - Archive the file — move it to `internal/done/` preserving git history:
-
-     ```bash
-     git mv docs/issues/internal/{number}-{name}.md \
-            docs/issues/internal/done/{number}-{name}.md
-     ```
-
-   - In `docs/issues/README.md`, move the row from the **Active** table to the
-     **Done** table and update the link path to `internal/done/…`
-   - Close the GitHub issue
+- An issue lives in two places at once: the file `docs/issues/NNN-slug.md` is the content,
+  the GitHub issue `#N` is the number and the index, and they are one to one (`#2` ⇄
+  `002-*.md` ⇄ **INT-002**)
+- **GitHub owns the number** — create the issue there first and adopt what it gives you;
+  never pick `NNN` by counting the files
+- The GitHub body is a summary and a link, not a copy of the file
+- A finished issue moves to `docs/issues/done/` and its GitHub issue is closed; there is no
+  index table in the repository to maintain
+- Issues against `submodule/opencad` are written here too, because the fork has no issue
+  tracking of its own
+- Before creating new features, check existing issues in `docs/issues/` and on GitHub
+- [docs/contributing/ISSUE-MANAGEMENT.md](docs/contributing/ISSUE-MANAGEMENT.md) is the
+  workflow; the `create-issue`, `implement-issue` and `finish-branch` skills drive it
 
 ### Testing Methodology
 

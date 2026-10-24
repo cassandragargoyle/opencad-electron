@@ -96,7 +96,7 @@ the document wins.
 
 3. **Close the GitHub issue** `#N` (== `NNN`) and update the link in its body to
    the new `done/` path:
-   `gh issue close N --repo cassandragargoyle/revlens --reason completed`
+   `gh issue close N --repo cassandragargoyle/opencad-electron --reason completed`
    (use `--reason "not planned"` for ❌ Closed / won't-fix)
 
 Commit the issue status change:

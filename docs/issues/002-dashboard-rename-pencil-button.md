@@ -3,7 +3,7 @@ title: INT-002 - Rename a dashboard project via a pencil button instead of doubl
 description: Apply when working on the project cards of the OpenCAD dashboard (submodule/opencad, ProjectDashboard.tsx), especially project rename and card actions.
 category: specification
 ai_load: on-demand
-status: active
+status: draft
 created: 2026-10-24
 last_updated: 2026-10-24
 tags:
@@ -20,7 +20,7 @@ tags:
 - **Author**: Zdenek
 - **Type**: Enhancement
 - **Priority**: Medium
-- **Status**: Open
+- **Status**: 📋 Open
 - **Target**: `submodule/opencad` (OpenCAD fork, commit `e23c061`), package `packages/app`
 - **GitHub**: [#2](https://github.com/cassandragargoyle/opencad-electron/issues/2)
 

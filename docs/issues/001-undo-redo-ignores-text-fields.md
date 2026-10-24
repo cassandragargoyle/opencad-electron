@@ -3,7 +3,7 @@ title: INT-001 - Ctrl+Z in a text field undoes the document instead of the field
 description: Apply when working on undo/redo keyboard shortcuts in the OpenCAD web app (submodule/opencad) or on focus handling of global shortcuts.
 category: specification
 ai_load: on-demand
-status: active
+status: draft
 created: 2026-10-24
 last_updated: 2026-10-24
 tags:
@@ -19,7 +19,7 @@ tags:
 - **Author**: Zdenek
 - **Type**: Bug
 - **Priority**: Medium
-- **Status**: Open
+- **Status**: 📋 Open
 - **Target**: `submodule/opencad` (OpenCAD fork, commit `e23c061`), package `packages/app`
 - **GitHub**: [#1](https://github.com/cassandragargoyle/opencad-electron/issues/1)
 

@@ -45,7 +45,7 @@ Search before adding:
 
 ```bash
 grep -ril "<keyword>" docs/issues/
-gh issue list --repo cassandragargoyle/revlens --search "<keyword>" --state all
+gh issue list --repo cassandragargoyle/opencad-electron --search "<keyword>" --state all
 ```
 
 If something close already exists, say so and ask whether to extend it instead.
@@ -53,7 +53,7 @@ If something close already exists, say so and ask whether to extend it instead.
 ## STEP 3: Take the number from GitHub
 
 ```bash
-gh issue create --repo cassandragargoyle/revlens \
+gh issue create --repo cassandragargoyle/opencad-electron \
   --title "NNN: <title>" --body "<one-sentence summary; the body is set properly in step 5>"
 ```
 
@@ -84,7 +84,7 @@ Show the user the file and ask - accept, adjust, or rewrite.
 Set the title to `NNN: <title>` and the body to the summary and the link:
 
 ```bash
-gh issue edit N --repo cassandragargoyle/revlens --title "NNN: <title>"
+gh issue edit N --repo cassandragargoyle/opencad-electron --title "NNN: <title>"
 ```
 
 Body, written from a file rather than inline so the markdown survives:
@@ -94,10 +94,10 @@ Body, written from a file rather than inline so the markdown survives:
 
 <one or two sentences>
 
-📄 Full issue: [`docs/issues/NNN-slug.md`](https://github.com/cassandragargoyle/revlens/blob/main/docs/issues/NNN-slug.md)
+📄 Full issue: [`docs/issues/NNN-slug.md`](https://github.com/cassandragargoyle/opencad-electron/blob/main/docs/issues/NNN-slug.md)
 ```
 
-Add the labels that fit: `gh issue edit N --repo cassandragargoyle/revlens --add-label bug`.
+Add the labels that fit: `gh issue edit N --repo cassandragargoyle/opencad-electron --add-label bug`.
 
 ## STEP 6: Commit
 
