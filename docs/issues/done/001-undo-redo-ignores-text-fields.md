@@ -3,7 +3,7 @@ title: INT-001 - Ctrl+Z in a text field undoes the document instead of the field
 description: Apply when working on undo/redo keyboard shortcuts in the OpenCAD web app (submodule/opencad) or on focus handling of global shortcuts.
 category: specification
 ai_load: on-demand
-status: draft
+status: active
 created: 2026-10-24
 last_updated: 2026-10-24
 tags:
@@ -19,8 +19,11 @@ tags:
 - **Author**: Zdenek
 - **Type**: Bug
 - **Priority**: Medium
-- **Status**: 📋 Open
+- **Status**: ✅ Implemented
+- **Closed**: 2026-10-24
 - **Target**: `submodule/opencad` (OpenCAD fork, commit `e23c061`), package `packages/app`
+- **Fix**: [cassandragargoyle/opencad#15](https://github.com/cassandragargoyle/opencad/pull/15),
+  submodule bumped to `858cead`
 - **GitHub**: [#1](https://github.com/cassandragargoyle/opencad-electron/issues/1)
 
 ## Why the issue lives here
@@ -69,11 +72,11 @@ Judgement calls:
 
 ## Acceptance Criteria
 
-- [ ] Ctrl/Cmd+Z, Ctrl/Cmd+Y and Ctrl/Cmd+Shift+Z do not call `undo`/`redo` and do not call
+- [x] Ctrl/Cmd+Z, Ctrl/Cmd+Y and Ctrl/Cmd+Shift+Z do not call `undo`/`redo` and do not call
       `preventDefault()` when the event target is an `input`, `textarea`, `select` or a
       `contentEditable` element
-- [ ] Outside editable elements the shortcuts behave as before
-- [ ] `packages/app/src/hooks/useUndoRedo.test.ts` covers the new cases (input, textarea,
+- [x] Outside editable elements the shortcuts behave as before
+- [x] `packages/app/src/hooks/useUndoRedo.test.ts` covers the new cases (input, textarea,
       contentEditable) and the existing tests still pass
-- [ ] The fix is merged in the OpenCAD fork and `submodule/opencad` is bumped here in a
+- [x] The fix is merged in the OpenCAD fork and `submodule/opencad` is bumped here in a
       separate commit
