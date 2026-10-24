@@ -3,7 +3,7 @@ title: INT-002 - Rename a dashboard project via a pencil button instead of doubl
 description: Apply when working on the project cards of the OpenCAD dashboard (submodule/opencad, ProjectDashboard.tsx), especially project rename and card actions.
 category: specification
 ai_load: on-demand
-status: draft
+status: active
 created: 2026-10-24
 last_updated: 2026-10-24
 tags:
@@ -20,8 +20,11 @@ tags:
 - **Author**: Zdenek
 - **Type**: Enhancement
 - **Priority**: Medium
-- **Status**: 📋 Open
+- **Status**: ✅ Implemented
+- **Closed**: 2026-10-24
 - **Target**: `submodule/opencad` (OpenCAD fork, commit `e23c061`), package `packages/app`
+- **Change**: [cassandragargoyle/opencad#16](https://github.com/cassandragargoyle/opencad/pull/16),
+  submodule bumped to `0abaf90`
 - **GitHub**: [#2](https://github.com/cassandragargoyle/opencad-electron/issues/2)
 
 ## Why the issue lives here
@@ -72,13 +75,13 @@ Judgement calls:
 
 ## Acceptance Criteria
 
-- [ ] The pencil button on a project card starts the inline rename and does not open the
+- [x] The pencil button on a project card starts the inline rename and does not open the
       project
-- [ ] F2 on the focused project name still starts the rename
-- [ ] A single click on the name or the thumbnail still opens the project
-- [ ] No `onDoubleClick` handler remains on the project card
-- [ ] The rename key is translated in all shipped locales
-- [ ] A component test covers the pencil button (rename starts, project not opened); the
+- [x] F2 on the focused project name still starts the rename
+- [x] A single click on the name or the thumbnail still opens the project
+- [x] No `onDoubleClick` handler remains on the project card
+- [x] The rename key is translated in all shipped locales
+- [x] A component test covers the pencil button (rename starts, project not opened); the
       e2e rename test still passes
-- [ ] The change is merged in the OpenCAD fork and `submodule/opencad` is bumped here in a
+- [x] The change is merged in the OpenCAD fork and `submodule/opencad` is bumped here in a
       separate commit
